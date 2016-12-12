@@ -15,7 +15,7 @@ public class Mt{
 
 	Mt(){
 
-		this.wordList = new ArrayList<Word>();
+		this.wordList = new ArrayList<Word>();		//Array list of words
 
 	}
 
@@ -27,19 +27,19 @@ public class Mt{
 		if (wordList.isEmpty() == false){
 			System.out.println("dle siya empty");
 
-			//mag checking cya
+			//DRIR DAPAT MAG CHECKING IFNAA NA PA ANG WORD OR NOT
 		}
 
 
 
-		for (int i = 0; i < words.length; i++) {
+		for (int i = 0; i < words.length; i++) {		//KANI NESTED FOR LOOP KAY PARA IBUTANG ANG ARRAY NA WORD SA WORDLIST 
 					Word x = new Word();
 					x.setName(words[i]);
 					wordList.add(x);
 					// System.out.println("word name: "+x.getName());
 
 					//wala pa nichecking where i check if naa na na ni occur
-				for (int j = 0; j < trans.length; j++) {
+				for (int j = 0; j < trans.length; j++) {  		//DAYUN ANG SULOD SA ARRAY NA trans KAY I HIMO UG TRANS NA OBJECT AND I SULOD SA ARRAY LIST SULOD SA WORD OBJ
 					Trans g =new Trans();
 					g.setName(trans[j]);
 					x.possible_trans.add(g);	
@@ -49,37 +49,20 @@ public class Mt{
 			}
 
 
-		// 	String[] array = new String[wordList.size()];
-		// wordList.toArray(array); // fill the array
-		// System.out.println(array);
-
-
-
-
-		
-
-
-
 		return true;
 
 
 	}
 
-	public String[] stringToArray(String s){
-		// String[] x = new String[3];
+	public String[] stringToArray(String s){// I CONVERT NIYA ANG STRING INTO ARRAY OF STRINGS
 
 		List<String> myList = new ArrayList<String>(Arrays.asList(s.split("\\s+")));
-
 		String[] array = new String[myList.size()];
 		myList.toArray(array); // fill the array
-
-
-
 		return array;
-
 	}
 
-	public void printing(){
+	public void printing(){// I PRINT NIYA TANAN SULOD SA WORDLIST NA ARRAY LIST
 
 		int i = 0;
 		
@@ -93,31 +76,17 @@ public class Mt{
 				while (j < a.possible_trans.size()) {
 					Trans b = (Trans)a.possible_trans.get(j);
 					System.out.println( "inside---------------------"+b.getName());
-					System.out.println( "inside----------------------"+b.getCount());
-
-					
+					System.out.println( "inside----------------------"+b.getCount());			
 					j++;
 				}
-
-
-
 			i++;
 		}
-
-
-
 	}
 
 
 
-	 public static void main(String[] args) {
-      // Prints "Hello, World" in the terminal window.
-     // Word x = new Word("hello");
-     // x.possible_trans.add(new Trans("shet"));
+	 public static void main(String[] args) { // BASICALLY TANAN NAA SA MAIN KAY FILE READING AND  PAG TAWAG SA FUNCTIONS NA NAA SA MT
 
-     // System.out.println(x.getName());
-     // System.out.println(x.possible_trans.get(0).name);
-     // System.out.println(x.possible_trans.get(0).count);
 	 		Mt m = new Mt();
 	 		String everything ="";
 	 		String aeverything ="";
@@ -132,53 +101,17 @@ public class Mt{
 			    StringBuilder asb = new StringBuilder();
 			    String aline = abr.readLine();
 
-			    while (line != null) {
-			        // sb.append(line);
-			         // System.out.println(line + "------------------------------ mao ni siya si sb. to sstring");
-			         // System.out.println(m.get());
-
-			         // m.stringToArray(line);
-			        // sb.append(System.lineSeparator());
-			        
-
-
-			        // asb.append(aline);
-			          // System.out.println(aline+ "------------------------------ mao ni siya si sb. to sstringAAAAAA");
-			                // System.out.println(m.get());
-			        // asb.append(System.lineSeparator());
-
-			          System.out.println(m.toWordList(m.stringToArray(line),m.stringToArray(aline)));
+			    while (line != null) {			        
+			          // System.out.println(m.toWordList(m.stringToArray(line),m.stringToArray(aline)));
 			          // m.get(m.stringToArray(line),m.stringToArray(aline));
-
 			         line = br.readLine();
 			         aline = abr.readLine();
-
-
-
 			    }
-			// everything = sb.toString();
-			// aeverything = asb.toString();
+
 			} catch(Exception e){  
          e.printStackTrace();
       }
 
       m.printing();
-
-
-
-
-      // System.out.println(everything+ "--------- maoo na ni si everything");
-      // System.out.println(aeverything+ "--------- maoo na ni si everythingAAAAAAAAAAAA");
    }
-
-
-
-
-
 }
-
-
-
-// finally {
-// 			    br.close();
-// 			}}

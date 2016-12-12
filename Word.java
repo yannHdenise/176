@@ -8,8 +8,9 @@ public class Word {
 	ArrayList<Trans> possible_trans;
    
    Word(){
-
+   	this.possible_trans = new ArrayList<Trans>();
    }
+
 
    Word(String name){
    		this.name = name;
@@ -18,6 +19,10 @@ public class Word {
    
   public String getName(){
   	return this.name;
+  }
+
+ 	public void setName(String name){
+  	this.name = name;
   }
 
 

@@ -10,4 +10,11 @@ public class Trans{
 		this.count = 0;
 	}
 
+	public String getName(){
+  		return this.name;
+  	}
+  	public int getCount(){
+  		return this.count;
+  	}
+
 }

@@ -30,10 +30,10 @@ public class Mt{
 			// This loop parses a String array and checks if a particular word entry is already existing in the wordList
 			for (int i = 0; i < words.length; i++) {									
 
-				boolean isWordExisting = inWordList(words[i]); 						// Check if a particular word entry, is already in wordList 
-				if (isWordExisting == true) {										// If it's already in the wordList, it calls a function
+				Word isWordExisting = inWordList(words[i]); 						// Check if a particular word entry, is already in wordList 
+				if (isWordExisting != null) {										// If it's already in the wordList, it calls a function
 					// Call Kim's function
-
+					System.out.println(isWordExisting.getName() + " is duplicated!");
 					
 				} else {
 					wordList.add(words[i]); 										// If it's not, then the String is added to the wordList
@@ -113,19 +113,34 @@ public class Mt{
 
 
 	// This function checks if a particular word (String) is already existing in the ArrayList called wordList
-	public boolean inWordList (String passed) {
+	public Word inWordList (String passed) {
 
 		/* A loop to traverse the wordList */
 		for (int i = 0; i < wordList.size(); i++) {
 			Word retrieved = (Word) wordList.get(i); 									// retrieve a word based on the index
 			if (retrieved.getName().equals(passed)) {									// if the current name of the word matched the passed String
-				return true;															// we return true
+				return retrieved;															// we return the Word itself
 			}
 		} // end for loop
 
-		return false;																	// otherwise, we return false
+		return null;																	// otherwise, we return null
 	}
 
+	public String[] translateSentence (String[] sentence) {
+		String[] translated = new String[sentence.length];
+
+
+		for (int i = 0; i < sentence.length; i++) {										// this loop will traverse the String array sentence
+			String tempWord = sentence[i];												// tempWord holds the current word in the sentence
+
+			for (int j = 0; i < wordList.size(); j++) {
+
+			}
+		}
+
+		return translated;
+
+	}
 
 
 	 public static void main(String[] args) { // BASICALLY TANAN NAA SA MAIN KAY FILE READING AND  PAG TAWAG SA FUNCTIONS NA NAA SA MT

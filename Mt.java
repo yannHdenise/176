@@ -27,7 +27,20 @@ public class Mt{
 		if (wordList.isEmpty() == false){
 			System.out.println("dle siya empty");
 
-			//DRIR DAPAT MAG CHECKING IFNAA NA PA ANG WORD OR NOT
+			//DIRI DAPAT MAG CHECKING IFNAA NA PA ANG WORD OR NOT
+		
+			// This loop parses a String array and checks if a particular word entry is already existing in the wordList
+			for (int i = 0; i < words.length; i++) {									
+
+				boolean isWordExisting = inWordList(words[i]); 						// Check if a particular word entry, is already in wordList 
+				if (isWordExisting == true) {										// If it's already in the wordList, it calls a function
+					// Call Kim's function
+					
+				} else {
+					wordList.add(words[i]); 										// If it's not, then the String is added
+				}
+			} // end for loop
+
 		}
 
 
@@ -43,6 +56,8 @@ public class Mt{
 					Trans g =new Trans();
 					g.setName(trans[j]);
 					x.possible_trans.add(g);	
+
+
 
 					// System.out.println("trans name: --------------------- "+g.getName());
 				}
@@ -98,6 +113,21 @@ public class Mt{
 	}
 
 
+	// This function checks if a particular word (String) is already existing in the ArrayList called wordList
+	public boolean inWordList (String passed) {
+
+		/* A loop to traverse the wordList */
+		for (int i = 0; i < wordList.size(); i++) {
+			Word retrieved = (Word) wordList.get(i); 									// retrieve a word based on the index
+			if (retrieved.getName().equals(passed)) {									// if the current name of the word matched the passed String
+				return true;															// we return true
+			}
+		} // end for loop
+
+		return false;																	// otherwise, we return false
+	}
+
+
 
 	 public static void main(String[] args) { // BASICALLY TANAN NAA SA MAIN KAY FILE READING AND  PAG TAWAG SA FUNCTIONS NA NAA SA MT
 
@@ -127,7 +157,7 @@ public class Mt{
          e.printStackTrace();
       }
 
-      m.printing();
+      //m.printing();
 
    }
 

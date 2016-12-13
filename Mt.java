@@ -26,8 +26,6 @@ public class Mt{
 
 		if (wordList.isEmpty() == false){
 			System.out.println("dle siya empty");
-
-			//DIRI DAPAT MAG CHECKING IFNAA NA PA ANG WORD OR NOT
 		
 			// This loop parses a String array and checks if a particular word entry is already existing in the wordList
 			for (int i = 0; i < words.length; i++) {									
@@ -35,9 +33,10 @@ public class Mt{
 				boolean isWordExisting = inWordList(words[i]); 						// Check if a particular word entry, is already in wordList 
 				if (isWordExisting == true) {										// If it's already in the wordList, it calls a function
 					// Call Kim's function
+
 					
 				} else {
-					wordList.add(words[i]); 										// If it's not, then the String is added
+					wordList.add(words[i]); 										// If it's not, then the String is added to the wordList
 				}
 			} // end for loop
 

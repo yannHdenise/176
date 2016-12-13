@@ -162,7 +162,7 @@ public class Mt{
 	}
 
 
-	 public static void main(String[] args) { // BASICALLY TANAN NAA SA MAIN KAY FILE READING AND  PAG TAWAG SA FUNCTIONS NA NAA SA MT
+	 public static void main(String[] args) { // BASICALLY TANAN NAA SA MAIN KAY FILE READING AND  PAG TAWAG SA FUNCTIONS NA NAA SA MT //
 
 	 		Mt m = new Mt();
 	 		String everything ="";

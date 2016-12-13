@@ -155,8 +155,9 @@ public class Mt{
 
 	// This function receives a String[] sentence, then returns a "translated" String[]
 	public String[] translateSentence (String[] sentence) {
-		String[] translated = new String[sentence.length]; 								// this will contain the translated counterpart of the sentence array (hence the same length)
-					
+		//String[] translated = new String[sentence.length]; 								// this will contain the translated counterpart of the sentence array (hence the same length)
+		ArrayList<String> translated = new ArrayList<String>();
+
 		/* this loop will traverse the String array sentence*/																	
 		for (int i = 0; i < sentence.length; i++) {										
 			String tempWord = sentence[i];												// tempWord holds the current word in the sentence
@@ -176,15 +177,23 @@ public class Mt{
 
 				}
 
-				translated[i] = mostCount.getName(); 									// the one with the most count will be the translated String
+				if (i != 0) {
+					if (!(translated.get(i-1).equals(mostCount.getName()))) {
+						translated.add(mostCount.getName());							// the one with the most count will be the translated String
+					}
+
+				} 									
 
 			} else {
-				translated[i] = sentence[i]; 											// the same word is stored in the translated array****
+				//translated[i] = sentence[i]; 											// the same word is stored in the translated array****
+				translated.add(sentence[i]);
 			}
 			
 		}
 
-		return translated;
+
+		String[] translatedArr = translated.toArray(new String[translated.size()]);
+		return translatedArr;
 
 	}
 

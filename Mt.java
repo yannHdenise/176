@@ -34,8 +34,7 @@ public class Mt{
 
 				boolean isWordExisting = inWordList(words[i]); 						// Check if a particular word entry, is already in wordList 
 				if (isWordExisting == true) {										// If it's already in the wordList, it calls a function
-					// Call Kim's function
-					
+					// Call Kim's function		
 				} else {
 					wordList.add(words[i]); 										// If it's not, then the String is added
 				}

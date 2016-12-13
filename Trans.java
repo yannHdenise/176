@@ -16,6 +16,9 @@ public class Trans{
   	public int getCount(){
   		return this.count;
   	}
+  	public void addCount(){
+  		count++;
+  	}
 
   	
  	public void setName(String name){

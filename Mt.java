@@ -24,8 +24,8 @@ public class Mt{
 		System.out.println(Arrays.toString(words));
 		System.out.println(Arrays.toString(trans));
 
-		if (wordList.isEmpty() == false){
-			System.out.println("dle siya empty");
+		// if (wordList.isEmpty() == false){
+		// 	System.out.println("dle siya empty");
 		
 			// This loop parses a String array and checks if a particular word entry is already existing in the wordList
 			for (int i = 0; i < words.length; i++) {									
@@ -34,33 +34,47 @@ public class Mt{
 				if (isWordExisting != null) {										// If it's already in the wordList, it calls a function
 					// Call Kim's function
 					System.out.println(isWordExisting.getName() + " is duplicated!");
-					
+					//inTransList(isWordexisting);
+					for(int j = 0; j < trans.length; j++){
+						inTransList(isWordExisting, trans[j]);
+					}
+
 				} else {
-					wordList.add(words[i]); 										// If it's not, then the String is added to the wordList
+					Word new_word = new Word(words[i]);
+
+					for(int j = 0; j < trans.length; j++){
+						inTransList(new_word, trans[j]);
+					}
+
+					wordList.add(new_word); 
+
+															// If it's not, then the String is added to the wordList
+				
+
 				}
 			} // end for loop
 
-		}
+		// }
 
 
 
-		for (int i = 0; i < words.length; i++) {		//KANI NESTED FOR LOOP KAY PARA IBUTANG ANG ARRAY NA WORD SA WORDLIST 
-					Word x = new Word();
-					x.setName(words[i]);
-					wordList.add(x);
-					// System.out.println("word name: "+x.getName());
+		// for (int i = 0; i < words.length; i++) {		//KANI NESTED FOR LOOP KAY PARA IBUTANG ANG ARRAY NA WORD SA WORDLIST 
+		// 			Word x = new Word();
+		// 			x.setName(words[i]);
+		// 			wordList.add(x);
+		// 			// System.out.println("word name: "+x.getName());
 
-					//wala pa nichecking where i check if naa na na ni occur
-				for (int j = 0; j < trans.length; j++) {  		//DAYUN ANG SULOD SA ARRAY NA trans KAY I HIMO UG TRANS NA OBJECT AND I SULOD SA ARRAY LIST SULOD SA WORD OBJ
-					Trans g =new Trans();
-					g.setName(trans[j]);
-					x.possible_trans.add(g);	
+		// 			//wala pa nichecking where i check if naa na na ni occur
+		// 		for (int j = 0; j < trans.length; j++) {  		//DAYUN ANG SULOD SA ARRAY NA trans KAY I HIMO UG TRANS NA OBJECT AND I SULOD SA ARRAY LIST SULOD SA WORD OBJ
+		// 			Trans g =new Trans(trans[j]);
+		// 			// g.setName(trans[j]);
+		// 			x.possible_trans.add(g);	
 
 
 
-					// System.out.println("trans name: --------------------- "+g.getName());
-				}
-			}
+		// 			// System.out.println("trans name: --------------------- "+g.getName());
+		// 		}
+		// 	}
 
 
 		return true;
@@ -124,6 +138,19 @@ public class Mt{
 		} // end for loop
 
 		return null;																	// otherwise, we return null
+	}
+
+	// This function checks if a particular wordtranslation (String) is already existing in the ArrayList called possible_trans
+	public void inTransList (Word passed, String trans_name) {
+
+		/* A loop to traverse the possible_trans*/
+		for (int i = 0; i < passed.possible_trans.size(); i++) {
+			Trans retrieved = (Trans) passed.possible_trans.get(i); 									// retrieve a word based on the index
+			if (retrieved.getName().equals(trans_name)) {									// if the current name of the word matched the passed String
+				passed.possible_trans.get(i).addCount();															// we return true
+			}
+		} // end for loop
+		passed.possible_trans.add(new Trans(trans_name));																// otherwise, we return false
 	}
 
 	// This function receives a String[] sentence, then returns a "translated" String[]
@@ -190,7 +217,7 @@ public class Mt{
          e.printStackTrace();
       }
 
-      //m.printing();
+      m.printing();
 
    }
 

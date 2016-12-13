@@ -7,7 +7,7 @@ public class Trans{
 	}
 	Trans(String name){
 		this.name = name;
-		this.count = 0;
+		this.count = 1;
 	}
 
 	public String getName(){

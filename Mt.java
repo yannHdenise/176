@@ -119,23 +119,37 @@ public class Mt{
 		for (int i = 0; i < wordList.size(); i++) {
 			Word retrieved = (Word) wordList.get(i); 									// retrieve a word based on the index
 			if (retrieved.getName().equals(passed)) {									// if the current name of the word matched the passed String
-				return retrieved;															// we return the Word itself
+				return retrieved;														// we return the Word itself
 			}
 		} // end for loop
 
 		return null;																	// otherwise, we return null
 	}
 
+	// This function receives a String[] sentence, then returns a "translated" String[]
 	public String[] translateSentence (String[] sentence) {
-		String[] translated = new String[sentence.length];
-
-
-		for (int i = 0; i < sentence.length; i++) {										// this loop will traverse the String array sentence
+		String[] translated = new String[sentence.length]; 								// this will contain the translated counterpart of the sentence array (hence the same length)
+					
+		/* this loop will traverse the String array sentence*/																	
+		for (int i = 0; i < sentence.length; i++) {										
 			String tempWord = sentence[i];												// tempWord holds the current word in the sentence
+			Word existingWord = inWordList(tempWord); 									// call inWordList function which will return a Word object if String is found, and null when it didn't
 
-			for (int j = 0; i < wordList.size(); j++) {
+			if (existingWord != null) { 												// if the tempWord is indeed in the wordList
 
+				// traverse through the array called possible_trans, and then traverse the getCount of each count object, then get the biggest one
+				ArrayList<Trans> translationsArray = existingWord.possible_trans;
+				Trans mostCount= new Trans();
+
+				/* this loop will traverse through the translationsArray and get the Trans object with the most count */
+				for (int j = 0; j < translationsArray.size(); j++) {
+
+				}
+
+			} else {
+				translated[i] = sentence[i];
 			}
+			
 		}
 
 		return translated;

@@ -144,7 +144,7 @@ public class Mt{
 				/* this loop will traverse through the translationsArray and get the Trans object with the most count */
 				for (int j = 0; j < translationsArray.size(); j++) {
 					if (translationsArray.get(j).getCount() > mostCount.getCount()) {
-						// conditions
+						// conditions// hello
 					}
 
 				}

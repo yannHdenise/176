@@ -144,13 +144,15 @@ public class Mt{
 				/* this loop will traverse through the translationsArray and get the Trans object with the most count */
 				for (int j = 0; j < translationsArray.size(); j++) {
 					if (translationsArray.get(j).getCount() > mostCount.getCount()) {
-						// conditions// hello
+						mostCount = translationsArray.get(j);
 					}
 
 				}
 
+				translated[i] = mostCount.getName(); 									// the one with the most count will be the translated String
+
 			} else {
-				translated[i] = sentence[i];
+				translated[i] = sentence[i]; 											// the same word is stored in the translated array
 			}
 			
 		}

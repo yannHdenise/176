@@ -152,7 +152,7 @@ public class Mt{
 				translated[i] = mostCount.getName(); 									// the one with the most count will be the translated String
 
 			} else {
-				translated[i] = sentence[i]; 											// the same word is stored in the translated array
+				translated[i] = sentence[i]; 											// the same word is stored in the translated array****
 			}
 			
 		}

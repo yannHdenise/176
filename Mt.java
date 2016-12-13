@@ -139,10 +139,13 @@ public class Mt{
 
 				// traverse through the array called possible_trans, and then traverse the getCount of each count object, then get the biggest one
 				ArrayList<Trans> translationsArray = existingWord.possible_trans;
-				Trans mostCount= new Trans();
+				Trans mostCount= translationsArray.get(0);
 
 				/* this loop will traverse through the translationsArray and get the Trans object with the most count */
 				for (int j = 0; j < translationsArray.size(); j++) {
+					if (translationsArray.get(j).getCount() > mostCount.getCount()) {
+						// conditions
+					}
 
 				}
 
